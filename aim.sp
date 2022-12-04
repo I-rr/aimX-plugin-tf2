@@ -9,7 +9,7 @@ public Action OnAimbotDetected(int client)
     GetClientName(client, name, sizeof(name));
 
     // Muestra un mensaje en la consola del servidor indicando que se ha detectado a um tramposo
-    PrintToServer("¡Se ha detectado a un tramposo! El jugador %s", name ha sido marcado);
+    PrintToServer("¡Se ha detectado a un tramposo! El jugador %sname ha sido marcado",);
 
     // Llama a una función para desconectar al jugador del servidor
     KickPlayer(client);
