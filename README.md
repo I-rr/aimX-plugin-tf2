@@ -8,3 +8,8 @@ Puedes modificar este código según tus necesidades, por ejemplo, cambiando el 
 
 
 Si la diferencia es menor a un cierto valor (en este caso, 0.05), se considera que el jugador está usando aimbot y se llama a la función "OnAimbotDetected" para desconectar al jugador del servidor.
+
+
+
+
+# ¡ADVERTENCIA! SE ENCUENTRA EN DESARROLLO, NO SE RECOMIENDA EL USO DEL MISMO.
