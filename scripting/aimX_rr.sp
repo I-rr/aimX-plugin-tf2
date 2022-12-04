@@ -1,15 +1,15 @@
 #include <sourcemod>
 #include <sdktools>
 
-// Crea una función que se ejecutará cuando se detecte auto-aim
+// Crea una función que se ejecutará cuando se detecte aimfast
 public Action OnAimbotDetected(int client)
 {
-    // Obtiene el nombre del jugador que usó el aimbot
+    // Marcar el nombre del jugador que usó aimbot
     char name[64];
     GetClientName(client, name, sizeof(name));
 
-    // Muestra un mensaje en la consola del servidor indicando que se ha detectado un aimbot
-    PrintToServer("Se ha detectado un aimbot usado por el jugador %s", name);
+    // Muestra un mensaje en la consola del servidor indicando que se ha detectado a um tramposo
+    PrintToServer("¡Se ha detectado a un tramposo! El jugador %sname ha sido marcado",);
 
     // Llama a una función para desconectar al jugador del servidor
     KickPlayer(client);
@@ -28,10 +28,10 @@ public void OnPlayerRunCommand(int client, int& buttons, int& impulse, float& fo
     AngleVectors(cmd->viewangles, vecShootAngles);
     Vector vecDiff = vecShootAngles - vecViewAngles;
 
-    // Si la diferencia es menor a un cierto valor, se considera que el jugador está usando un aimbot
+    // Si la diferencia es menor a un cierto valor, se considera que el jugador está usando aimbot
     if (vecDiff.Length() < 0.05)
     {
-        // Llama a la función de detección de aimbot
+        // Llama a la función de detección primaria
         OnAimbotDetected(client);
     }
 }
