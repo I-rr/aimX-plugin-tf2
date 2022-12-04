@@ -1,25 +1,37 @@
 #include <sourcemod>
+#include <sdktools>
 
-public OnPlayerRunCommand(client, &buttons, &impulse, &vel[3], &angles[3], &oldbuttons, &oldimpulse)
+// Crea una función que se ejecutará cuando se detecte un aimbot
+public Action OnAimbotDetected(int client)
 {
-    // Obtenemos la dirección de mira actual del jugador
-    Vector current_aim = GetClientEyeAngles(client);
+    // Obtiene el nombre del jugador que usó el aimbot
+    char name[64];
+    GetClientName(client, name, sizeof(name));
 
-    // Si la dirección de mira cambió demasiado rápido,
-    // es posible que el jugador esté usando un aimbot
-    if (current_aim.x - last_aim.x > AIMBOT_THRESHOLD || current_aim.y - last_aim.y > AIMBOT_THRESHOLD)
+    // Muestra un mensaje en la consola del servidor indicando que se ha detectado un aimbot
+    PrintToServer("Se ha detectado un aimbot usado por el jugador %s", name);
+
+    // Llama a una función para desconectar al jugador del servidor
+    KickPlayer(client);
+
+    return Plugin_Handled;
+}
+
+public void OnPlayerRunCommand(int client, int& buttons, int& impulse, float& forwardmove, float& sidemove, float& upmove, float velocity[3], CUserCmd* cmd)
+{
+    // Obtiene la dirección en la que el jugador está mirando
+    Vector vecViewAngles;
+    GetClientViewAngles(client, vecViewAngles);
+
+    // Calcula la diferencia entre la dirección en la que el jugador mira y la dirección hacia la que dispara
+    Vector vecShootAngles;
+    AngleVectors(cmd->viewangles, vecShootAngles);
+    Vector vecDiff = vecShootAngles - vecViewAngles;
+
+    // Si la diferencia es menor a un cierto valor, se considera que el jugador está usando un aimbot
+    if (vecDiff.Length() < 0.05)
     {
-        // Incrementamos un contador de sospechas de uso de aimbot
-        aimbot_suspicions[client]++;
-
-        // Si el jugador superó un cierto umbral de sospechas,
-        // lo desconectamos del servidor
-        if (aimbot_suspicions[client] > AIMBOT_SUSPICION_THRESHOLD)
-        {
-            KickClient(client);
-        }
+        // Llama a la función de detección de aimbot
+        OnAimbotDetected(client);
     }
-
-    // Actualizamos la dirección de mira del jugador
-    last_aim[client] = current_aim;
 }
