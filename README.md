@@ -1,7 +1,7 @@
 ## aimX-plugin-tf2 (Sourcemod)
 
 
-### Plugin para verificar la punteria del jugador (ANTI_AIMBOT)
+### Plugin para verificar la punteria del jugador (AIM+SOURCEBAN)
 
 
 Puedes modificar este código según tus necesidades, por ejemplo, cambiando el umbral de detección de aimbot o agregando más lógica para mejorar la precisión de la detección. También puedes usar otros métodos para detectar el uso de aim-bot en tu servidor de TF2
