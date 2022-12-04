@@ -1,7 +1,7 @@
 #include <sourcemod>
 #include <sdktools>
 
-// Crea una función que se ejecutará cuando se detecte un aimbot
+// Crea una función que se ejecutará cuando se detecte auto-aim
 public Action OnAimbotDetected(int client)
 {
     // Obtiene el nombre del jugador que usó el aimbot
