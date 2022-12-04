@@ -1,3 +1,5 @@
+#include <sourcemod>
+
 public OnPlayerRunCommand(client, &buttons, &impulse, &vel[3], &angles[3], &oldbuttons, &oldimpulse)
 {
     // Obtenemos la dirección de mira actual del jugador
