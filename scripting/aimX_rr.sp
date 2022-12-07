@@ -1,6 +1,17 @@
 #include <sourcemod>
 #include <sdktools>
 
+#define PLUGIN_VERSION "1.0.1"
+
+public Plugin myinfo = 
+{
+	name = "aimX-plugin",
+	author = "I-rr",
+	description = "Null",
+	version = PLUGIN_VERSION,
+	url = "https://github.com/I-rr/aimX-plugin-tf2"
+};
+
 // Crea una función que se ejecutará cuando se detecte aimfast
 public Action OnAimbotDetected(int client)
 {
