@@ -7,7 +7,7 @@ public Plugin myinfo =
 {
 	name = "aimX-plugin",
 	author = "I-rr",
-	description = "Verificar la velociadad del AIM",
+	description = "Verificar la velocidad del AIM",
 	version = PLUGIN_VERSION,
 	url = "https://github.com/I-rr/aimX-plugin-tf2"
 };
