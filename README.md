@@ -13,3 +13,7 @@ Si la diferencia es menor a un cierto valor (en este caso, 0.05), se considera q
 
 
 # ¡ADVERTENCIA! ESTE PLUGIN SE ENCUENTRA EN DESARROLLO, NO SE RECOMIENDA EL USO DEL MISMO.
+
+Sugerencias
+
+- No descargar, gracias?! XD
